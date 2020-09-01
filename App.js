@@ -84,6 +84,8 @@ export default function App() {
             showsTraffic={true}
             showsUserLocation={true}
             onPress={changeMarker}
+            mapType="hybrid"
+            
             
           >
             <Marker
