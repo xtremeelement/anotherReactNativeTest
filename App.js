@@ -12,7 +12,7 @@ export default function App() {
   const [date, setDate] = useState(new Date(1598051730000));
   const [mode, setMode] = useState('date');
   const [show, setShow] = useState(false);
-
+  const [test, setTest] = useState({coordinate:{latitude: 28.6933, longitude:-81.5321}})
   const onChange = (event, selectedDate) => {
     const currentDate = selectedDate || date;
     setShow(Platform.OS === 'ios');
@@ -42,7 +42,13 @@ export default function App() {
     longitude: -81
   }
   
-
+  const changeMarker= (coordinate)=>{
+    console.log(coordinate.nativeEvent.coordinate)
+    setTest({coordinate:{
+      latitude: coordinate.nativeEvent.coordinate.latitude,
+      longitude: coordinate.nativeEvent.coordinate.longitude
+    }})
+  }
   const imgURL = require("./images/car.jpg");
   return (
     <View style={styles.container}>
@@ -73,6 +79,11 @@ export default function App() {
               longitudeDelta: 0.0421,
             }}
             style={styles.map__stuff}
+            showsBuildings={true}
+            showsCompass={true}
+            showsTraffic={true}
+            showsUserLocation={true}
+            onPress={changeMarker}
             
           >
             <Marker
@@ -80,10 +91,16 @@ export default function App() {
               title="test"
               description="another test"
             />
+            <Marker
+              coordinate={{latitude: test.coordinate.latitude, longitude: test.coordinate.longitude}}
+              title="test2"
+              description="another test2"
+            />
+            
           </MapView>
         </View>
       </View>
-      <StatusBar backgroundColor="white" />
+      <StatusBar backgroundColor="white" style="auto"/>
     </View>
   );
 }
