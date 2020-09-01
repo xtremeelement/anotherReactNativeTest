@@ -4,7 +4,7 @@ import { StyleSheet, Text, View, ImageBackground, Button, TouchableOpacity } fro
 import SVG from "./images/svg.js";
 import Waves from "./images/wave.svg";
 import DateTimePicker from '@react-native-community/datetimepicker';
-import MapView from 'react-native-maps'
+import MapView, { Marker } from 'react-native-maps'
 
 
 export default function App() {
@@ -37,6 +37,12 @@ export default function App() {
     showMode('time');
   };
 
+  const marker = {
+    latitude: 28,
+    longitude: -81
+  }
+  
+
   const imgURL = require("./images/car.jpg");
   return (
     <View style={styles.container}>
@@ -66,7 +72,13 @@ export default function App() {
               longitudeDelta: 0.0421,
             }}
             style={styles.map__stuff}
-          />
+          >
+            <Marker
+              coordinate={{latitude: 28.6934, longitude:-81.5322}}
+              title="test"
+              description="another test"
+            />
+          </MapView>
         </View>
       </View>
       <StatusBar backgroundColor="white" />
