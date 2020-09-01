@@ -4,6 +4,7 @@ import { StyleSheet, Text, View, ImageBackground, Button, TouchableOpacity } fro
 import SVG from "./images/svg.js";
 import Waves from "./images/wave.svg";
 import DateTimePicker from '@react-native-community/datetimepicker';
+import MapView from 'react-native-maps'
 
 
 export default function App() {
@@ -19,7 +20,12 @@ export default function App() {
   };
 
   const showMode = (currentMode) => {
-    setShow(true);
+    if(show == false){
+
+      setShow(true);
+    }else{
+      setShow(false);
+    }
     setMode(currentMode);
   };
 
@@ -38,9 +44,7 @@ export default function App() {
         <Text style={styles.text}>SSD International Inc.</Text>        
       </ImageBackground>      
       <View style={styles.showBox}>
-        <Text style={{textAlign: "center"}}>Reserve a spot for CCW Class</Text>
-        <Button title="Select Date" onPress={showDatepicker} buttonStyle={styles.select__button}/>
-        <Button title="Select Time" onPress={showTimepicker} buttonStyle={styles.select__button}/>
+        <Text style={{textAlign: "center"}}>Reserve a spot for CCW Class</Text>        
         <TouchableOpacity style={styles.select__button} onPress={showDatepicker}><Text style={{color: 'white', textAlign: 'center'}}>Select Time</Text></TouchableOpacity>
         <TouchableOpacity style={styles.select__button} onPress={showTimepicker}><Text style={{color: 'white', textAlign: 'center'}}>Select Date</Text></TouchableOpacity>
         {show && (
@@ -53,6 +57,17 @@ export default function App() {
           onChange={onChange}
         />
       )}
+        <View style={{height: '100%', width: '100%'}}>
+          <MapView
+            initialRegion={{
+              latitude: 28.6934,
+              longitude: -81.5322,
+              latitudeDelta: 0.0922,
+              longitudeDelta: 0.0421,
+            }}
+            style={styles.map__stuff}
+          />
+        </View>
       </View>
       <StatusBar backgroundColor="white" />
     </View>
@@ -95,5 +110,8 @@ const styles = StyleSheet.create({
     backgroundColor: 'orange',
     justifyContent: 'center'
     
+  },
+  map__stuff:{
+    ...StyleSheet.absoluteFillObject,
   }
 });
