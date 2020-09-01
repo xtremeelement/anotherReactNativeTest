@@ -5,7 +5,7 @@ import SVG from "./images/svg.js";
 import Waves from "./images/wave.svg";
 import DateTimePicker from '@react-native-community/datetimepicker';
 import MapView, { Marker } from 'react-native-maps'
-
+import {RNCamera, Barcode} from 'react-native-camera'
 
 export default function App() {
 
@@ -63,6 +63,7 @@ export default function App() {
           onChange={onChange}
         />
       )}
+      {/* <RNCamera/> */}
         <View style={{height: '100%', width: '100%'}}>
           <MapView
             initialRegion={{
@@ -72,6 +73,7 @@ export default function App() {
               longitudeDelta: 0.0421,
             }}
             style={styles.map__stuff}
+            
           >
             <Marker
               coordinate={{latitude: 28.6934, longitude:-81.5322}}
