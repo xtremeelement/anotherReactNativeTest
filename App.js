@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
   },
   image__style: {
     flex: 0,
-    height: 200,    
+    height: 198,    
     alignSelf: 'stretch',
   },
   text: {
