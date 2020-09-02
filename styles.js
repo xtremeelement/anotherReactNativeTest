@@ -1,4 +1,5 @@
-import {stylesheet} from 'react';
+import {StyleSheet} from 'react-native';
+
 
 export const colors ={
     darkBg: '#222',
@@ -8,3 +9,10 @@ export const colors ={
     pink: '#ea3372',
     textSec: '#aaa'
 }
+
+export const gs = StyleSheet.create({
+    rowBetween: {
+        flexDirection: "row",
+        justifyContent: "space-between"
+    }
+})
