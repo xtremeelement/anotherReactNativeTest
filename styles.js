@@ -11,6 +11,10 @@ export const colors ={
 }
 
 export const gs = StyleSheet.create({
+    rowCenter:{
+        flexDirection: 'row',
+        alignItems: 'center'
+    },
     rowBetween: {
         flexDirection: "row",
         justifyContent: "space-between"
