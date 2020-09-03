@@ -5,7 +5,7 @@ import { gs, colors } from '../../../styles'
 
 const Bookmark = () => {
     return (
-        <View style={styles.Bookmark}> 
+        <View style={styles.bookmark}> 
             <Feather name="bookmark" size={24} color={colors.pink}/>
         </View>
     )
@@ -14,9 +14,15 @@ const Bookmark = () => {
 export default Bookmark
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center'
+    bookmark: {
+        position: 'absolute',
+        width: 56,
+        height: 56,
+        right: 32,
+        top: -28,
+        backgroundColor: colors.text,
+        ...gs.center,
+        borderRadius: 28,
+        zIndex: 100
     }
 })
